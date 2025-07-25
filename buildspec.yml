@@ -1,0 +1,18 @@
+version: 0.2
+
+env:
+  variables:
+    EFS_MOUNT: "/mnt/efs"
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - yum install -y amazon-efs-utils rsync
+  pre_build:
+    commands:
+      - mkdir -p $EFS_MOUNT
+  build:
+    commands:
+      - rsync -av --delete ./ $EFS_MOUNT/
