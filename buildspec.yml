@@ -6,10 +6,8 @@ env:
 
 phases:
   install:
-    runtime-versions:
-      python: 3.8
     commands:
-      - yum install -y amazon-efs-utils rsync
+      - yum install -y python38 amazon-efs-utils rsync
   pre_build:
     commands:
       - mkdir -p $EFS_MOUNT
