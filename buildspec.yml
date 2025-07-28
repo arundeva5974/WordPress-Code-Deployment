@@ -5,9 +5,6 @@ env:
     EFS_MOUNT: "/mnt/efs"
 
 phases:
-  install:
-    commands:
-      - yum install -y python38 amazon-efs-utils rsync
   pre_build:
     commands:
       - mkdir -p $EFS_MOUNT
